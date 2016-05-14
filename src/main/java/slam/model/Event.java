@@ -85,4 +85,11 @@ public class Event {
 		this.modifiedTime = modifiedTime;
 	}
 
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", correlationId=" + correlationId + ", type=" + type + ", estimatedTimeOfArrival="
+				+ estimatedTimeOfArrival + ", status=" + status + ", parentId=" + parentId + ", createdTime="
+				+ createdTime + ", modifiedTime=" + modifiedTime + "]";
+	}
+
 }

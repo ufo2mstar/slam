@@ -9,11 +9,9 @@
     </encoder>
   </appender>
 
-  <loggers>
-  	<logger name="slam" level="trace" additivity="false">
-      <appender-ref ref="STDOUT" />
-  	</logger>
-  </loggers>
+  <logger name="slam" level="trace" additivity="false">
+    <appender-ref ref="STDOUT" />
+  </logger>
 
   <root level="info">
     <appender-ref ref="STDOUT" />
