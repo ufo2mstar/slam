@@ -1,8 +1,7 @@
-/.idea
-/target
+**/target
+.settings/
 .project
-/.settings
+/target/
+.DS_Store
 .classpath
-/.metadata
-/bin/
-RemoteSystemsTempFiles/
+.metadata/

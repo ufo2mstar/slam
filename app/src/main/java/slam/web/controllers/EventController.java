@@ -16,7 +16,7 @@ import slam.model.Event;
 
 @Controller
 public class EventController {
-
+	 
 	private static final Logger log = LoggerFactory.getLogger(EventController.class);
 
     @RequestMapping(path="event", method=RequestMethod.POST)
