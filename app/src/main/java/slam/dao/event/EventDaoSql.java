@@ -2,24 +2,32 @@ package slam.dao.event;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import slam.model.Event;
 
 @Component
-public class EventDaoSql {
+public class EventDaoSql extends NamedParameterJdbcDaoSupport {
 	
 	private static final String INSERT = "INSERT INTO events (id, correlationId) VALUES (?, ?)";
+
+	private static final String FIND_BY_ID = "SELECT * FROM events where id = :id";
 	
 	@Autowired
-	JdbcTemplate jdbcTemplate;
+	public void setTemplate(JdbcTemplate jdbcTemplate) {
+		super.setJdbcTemplate(jdbcTemplate);
+	}
 	
 	public void insert(final Event event) {
-		jdbcTemplate.update(INSERT, new PreparedStatementSetter() {
+		this.getJdbcTemplate().update(INSERT, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement stmt) throws SQLException {
@@ -29,13 +37,12 @@ public class EventDaoSql {
 			
 		});
 	}
-
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
-
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
+	
+	public Event find(UUID id) {
+		SqlParameterSource params = new MapSqlParameterSource("id", id.toString());
+		
+		return this.getNamedParameterJdbcTemplate()
+			.queryForObject(FIND_BY_ID, params, new EventMapper());
 	}
 	
 }
