@@ -27,4 +27,11 @@ public class EventController {
         return UUID.randomUUID();
     }
 
+//    @RequestMapping(path = "/",method = RequestMethod.GET)
+    @RequestMapping(path = "/") // Defaults to GET?
+    @ResponseBody // is there any other @s we use here?
+    public String home(){
+        return "Its Aliiivee!!!";
+    }
+
 }
