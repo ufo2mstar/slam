@@ -1,12 +1,9 @@
 package slam.dao.event;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -17,7 +14,9 @@ import slam.model.Event;
 @Component
 public class EventDaoSql extends NamedParameterJdbcDaoSupport {
 
-    private static final String INSERT = "INSERT INTO events (id, correlationId) VALUES (?, ?)";
+    private static final String INSERT = "INSERT INTO events " + 
+    		"(id, correlation_id, event_type, estimated_time_of_arrival, status, parent_id, created_time, modified_time) " + 
+    		"VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String FIND_BY_ID = "SELECT * FROM events where id = :id";
 

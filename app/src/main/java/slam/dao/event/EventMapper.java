@@ -15,7 +15,7 @@ public class EventMapper implements RowMapper<Event> {
 		Event result = new Event();
 		result.setId(UUID.fromString(rs.getString("id")));
 		result.setCorrelationId(
-			UUID.fromString(rs.getString("correlationId")));
+			UUID.fromString(rs.getString("correlation_id")));
 		
 		return result;
 	}

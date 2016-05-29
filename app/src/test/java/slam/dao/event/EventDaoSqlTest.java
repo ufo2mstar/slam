@@ -2,6 +2,7 @@ package slam.dao.event;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
 import java.util.UUID;
 
 import org.junit.Test;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import slam.Main;
 import slam.model.Event;
+import slam.model.type.StatusType;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(Main.class)
@@ -31,6 +33,12 @@ public class EventDaoSqlTest {
         Event event = new Event();
         event.setId(UUID.randomUUID());
         event.setCorrelationId(UUID.randomUUID());
+        event.setEventType("EventRecieved");
+        event.setEstimatedTimeOfArrival(new Date());
+        event.setStatus(StatusType.PENDING);
+        event.setParentId(null);
+        event.setCreatedTime(new Date());
+        event.setModifiedTime(new Date());
         return event;
     }
 

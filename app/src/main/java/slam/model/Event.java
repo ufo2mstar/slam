@@ -3,17 +3,19 @@ package slam.model;
 import java.util.Date;
 import java.util.UUID;
 
+import slam.model.type.StatusType;
+
 public class Event {
 
 	private UUID id;
 	
 	private UUID correlationId;
 	
-	private String type;
+	private String eventType;
 	
 	private Date estimatedTimeOfArrival;
 	
-	private String status;
+	private StatusType status;
 	
 	private UUID parentId;
 	
@@ -37,28 +39,12 @@ public class Event {
 		this.correlationId = correlationId;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public Date getEstimatedTimeOfArrival() {
 		return estimatedTimeOfArrival;
 	}
 
 	public void setEstimatedTimeOfArrival(Date estimatedTimeOfArrival) {
 		this.estimatedTimeOfArrival = estimatedTimeOfArrival;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public UUID getParentId() {
@@ -85,11 +71,27 @@ public class Event {
 		this.modifiedTime = modifiedTime;
 	}
 
+	public String getEventType() {
+		return eventType;
+	}
+
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
+	}
+
+	public StatusType getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusType status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ", correlationId=" + correlationId + ", type=" + type + ", estimatedTimeOfArrival="
-				+ estimatedTimeOfArrival + ", status=" + status + ", parentId=" + parentId + ", createdTime="
-				+ createdTime + ", modifiedTime=" + modifiedTime + "]";
+		return "Event [id=" + id + ", correlationId=" + correlationId + ", eventType=" + eventType
+				+ ", estimatedTimeOfArrival=" + estimatedTimeOfArrival + ", status=" + status + ", parentId=" + parentId
+				+ ", createdTime=" + createdTime + ", modifiedTime=" + modifiedTime + "]";
 	}
 
 }
