@@ -19,46 +19,57 @@ import slam.model.type.StatusType;
 @SpringApplicationConfiguration(Main.class)
 public class EventDaoSqlTest {
 
-    @Autowired
-    EventDaoSql dao;
+	@Autowired
+	EventDaoSql dao;
 
-    @Test
-    public void testInsert() {
-        Event event = getEvent();
+	public void testInsert() {
+		Event event = getEvent();
+		dao.insert(event);
+	}
 
-        dao.insert(event);
-    }
+	public void testInsert(Event event) {
+		dao.insert(event);
+	}
 
-    private Event getEvent() {
-        Event event = new Event();
-        event.setId(UUID.randomUUID());
-        event.setCorrelationId(UUID.randomUUID());
-        event.setEventType("EventRecieved");
-        event.setEstimatedTimeOfArrival(new Date());
-        event.setStatus(StatusType.PENDING);
-        event.setParentId(null);
-        event.setCreatedTime(new Date());
-        event.setModifiedTime(new Date());
-        return event;
-    }
+	private Event getEvent() {
+		Event event = new Event();
+		event.setId(UUID.randomUUID());
+		event.setCorrelationId(UUID.randomUUID());
+		event.setEventType("EventRecieved");
+		event.setEstimatedTimeOfArrival(new Date());
+		event.setStatus(StatusType.PENDING);
+		event.setParentId(null);
+		event.setCreatedTime(new Date());
+		event.setModifiedTime(new Date());
+		return event;
+	}
 
-    @Test
-    public void testFindById() {
-        Event event = this.getEvent();
-        dao.insert(event);
+	@Test
+	public void testFindById() {
+		Event event = this.getEvent();
+		testInsert(event); // this implicitly tests the insert method too!
 
-        Event result = dao.find(event.getId());
+		Event result = dao.find(event.getId());
+		CompareStoreAndRetrieveEvents(event, result);
+	}
 
-        assertEquals(event.getId(), result.getId());
-        assertEquals(event.getCorrelationId(), result.getCorrelationId());
-    }
+	public void CompareStoreAndRetrieveEvents(Event event, Event result) {
+		assertEquals(event.getId(), result.getId());
+		assertEquals(event.getCorrelationId(), result.getCorrelationId());
+		assertEquals(event.getEventType(), result.getEventType());
+		assertEquals(event.getEstimatedTimeOfArrival(), result.getEstimatedTimeOfArrival());
+		assertEquals(event.getStatus(), result.getStatus());
+		assertEquals(event.getParentId(), result.getParentId());
+		assertEquals(event.getCreatedTime(), result.getCreatedTime());
+		assertEquals(event.getModifiedTime(), result.getModifiedTime());
+	}
 
-    public EventDaoSql getDao() {
-        return dao;
-    }
+	public EventDaoSql getDao() {
+		return dao;
+	}
 
-    public void setDao(EventDaoSql dao) {
-        this.dao = dao;
-    }
+	public void setDao(EventDaoSql dao) {
+		this.dao = dao;
+	}
 
 }

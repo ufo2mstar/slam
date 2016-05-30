@@ -24,11 +24,13 @@ public class EventSetter implements PreparedStatementSetter {
 		stmt.setString(3, event.getEventType());
 		stmt.setTimestamp(4, toSqlTimestamp(event.getEstimatedTimeOfArrival()));
 		stmt.setString(5, event.getStatus().name());
-		if (event.getParentId() != null) {
-			stmt.setString(6, event.getParentId().toString());
-		} else {
-			stmt.setString(6, null);
-		}
+//		FIXME: why not ternaries? keeps code dry
+//		if (event.getParentId() != null) {
+//			stmt.setString(6, event.getParentId().toString());
+//		} else {
+//			stmt.setString(6, null);
+//		}
+		stmt.setString(6, event.getParentId() != null ? event.getParentId().toString() : null);
 		stmt.setTimestamp(7, toSqlTimestamp(event.getCreatedTime()));
 		stmt.setTimestamp(8, toSqlTimestamp(event.getModifiedTime()));
 	}

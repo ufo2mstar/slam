@@ -11,7 +11,7 @@ public class AppTest
     extends TestCase
 {
     /**
-     * Create the test case
+     * Create the unit-test case
      *
      * @param testName name of the test case
      */
@@ -29,7 +29,7 @@ public class AppTest
     }
 
     /**
-     * Rigourous Test :-)
+     * Rigourous Test :-) ... lol, we'll get there
      */
     public void testApp()
     {
