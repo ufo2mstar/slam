@@ -1,10 +1,10 @@
 package slam.dao.event;
 
 import java.util.UUID;
-import java.util.logging.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.IncorrectResultSetColumnCountException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
@@ -17,6 +17,8 @@ import slam.model.Event;
 @Component
 public class EventDaoSql extends NamedParameterJdbcDaoSupport {
 
+	private static final Logger log = LoggerFactory.getLogger(EventDaoSql.class);
+	
 	private static final String INSERT = "INSERT INTO events " +
 			"(id, correlation_id, event_type, estimated_time_of_arrival, status, parent_id, created_time, modified_time) " +
 			"VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -30,7 +32,7 @@ public class EventDaoSql extends NamedParameterJdbcDaoSupport {
 
 	public void insert(final Event event) {
 		int insertCount = this.getJdbcTemplate().update(INSERT, new EventSetter(event));
-		logger.debug(INSERT); // fixme: hmm.. any way to see the constructed prepared statement here itself?
+		log.debug("Running insert, event: " + event);
 		if (1 != insertCount) {
 			throw new IncorrectDataModificationSizeException(1, insertCount);
 		}
