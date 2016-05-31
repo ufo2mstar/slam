@@ -1,6 +1,7 @@
 package slam.dao.event;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 import java.util.UUID;
@@ -50,6 +51,17 @@ public class EventDaoSqlTest {
 		testInsert(event); // this implicitly tests the insert method too!
 
 		Event result = dao.find(event.getId());
+		System.out.println(result);
+		System.out.println(event);
+
+//		todo: negative Scenario testing? asserting fail?
+//		event = this.getEvent();
+//		System.out.println(event);
+//		FailCompareStoreAndRetrieveEvents(event, result);
+//		fixme: help with the logger setup please
+//		logger.debug(result);
+//		logger.debug(event);
+//		todo: need to rewrite this stupid thing for the Event class..
 		CompareStoreAndRetrieveEvents(event, result);
 	}
 
@@ -57,11 +69,12 @@ public class EventDaoSqlTest {
 		assertEquals(event.getId(), result.getId());
 		assertEquals(event.getCorrelationId(), result.getCorrelationId());
 		assertEquals(event.getEventType(), result.getEventType());
-		assertEquals(event.getEstimatedTimeOfArrival(), result.getEstimatedTimeOfArrival());
+//		assertEquals(event.getEstimatedTimeOfArrival(), result.getEstimatedTimeOfArrival()); // fixme: WTH not?
+		assertTrue(event.getEstimatedTimeOfArrival().equals(result.getEstimatedTimeOfArrival()));
 		assertEquals(event.getStatus(), result.getStatus());
 		assertEquals(event.getParentId(), result.getParentId());
-		assertEquals(event.getCreatedTime(), result.getCreatedTime());
-		assertEquals(event.getModifiedTime(), result.getModifiedTime());
+		assertTrue(event.getCreatedTime().equals(result.getCreatedTime()));
+		assertTrue(event.getModifiedTime().equals(result.getModifiedTime()));
 	}
 
 	public EventDaoSql getDao() {

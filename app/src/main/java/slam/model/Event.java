@@ -8,19 +8,19 @@ import slam.model.type.StatusType;
 public class Event {
 
 	private UUID id;
-	
+
 	private UUID correlationId;
-	
+
 	private String eventType;
-	
+
 	private Date estimatedTimeOfArrival;
-	
+
 	private StatusType status;
-	
+
 	private UUID parentId;
-	
+
 	private Date createdTime;
-	
+
 	private Date modifiedTime;
 
 	public UUID getId() {
@@ -89,9 +89,21 @@ public class Event {
 
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ", correlationId=" + correlationId + ", eventType=" + eventType
-				+ ", estimatedTimeOfArrival=" + estimatedTimeOfArrival + ", status=" + status + ", parentId=" + parentId
-				+ ", createdTime=" + createdTime + ", modifiedTime=" + modifiedTime + "]";
+//		return "Event [id=" + id + ", correlationId=" + correlationId + ", eventType=" + eventType + ", " +
+//				"estimatedTimeOfArrival=" + estimatedTimeOfArrival + ", status=" + status + ", parentId=" + parentId +
+//				", createdTime=" + createdTime + ", modifiedTime=" + modifiedTime + "]";
+		return toString(" ,\n");
 	}
 
+//	fixme: by suggesting a better way to do this please!
+	public String toString(String delimiter) {
+		return "Event [id=" + id + delimiter + " correlationId=" + correlationId + delimiter + " eventType=" +
+				eventType + delimiter + " estimatedTimeOfArrival=" + estimatedTimeOfArrival + delimiter + " status=" +
+				status + delimiter + " parentId=" + parentId + delimiter + " createdTime=" + createdTime + delimiter +
+				" modifiedTime=" + modifiedTime + "]";
+	}
+
+	public void compare(Event one, Event two){
+//		todo: i will get to it one day.. with proper error logging and all..
+	}
 }

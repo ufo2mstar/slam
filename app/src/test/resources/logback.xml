@@ -9,11 +9,13 @@
     </encoder>
   </appender>
 
+  <!--fixme: why is this logger not available everywhere in the package?
+  and what about unittests??-->
   <logger name="slam" level="trace" additivity="false">
-    <appender-ref ref="STDOUT" />
+    <appender-ref ref="STDOUT"/>
   </logger>
 
   <root level="info">
-    <appender-ref ref="STDOUT" />
+    <appender-ref ref="STDOUT"/>
   </root>
 </configuration>

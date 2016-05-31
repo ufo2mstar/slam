@@ -1,6 +1,7 @@
 package slam.dao.event;
 
 import java.util.UUID;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.IncorrectResultSetColumnCountException;
@@ -29,6 +30,7 @@ public class EventDaoSql extends NamedParameterJdbcDaoSupport {
 
 	public void insert(final Event event) {
 		int insertCount = this.getJdbcTemplate().update(INSERT, new EventSetter(event));
+		logger.debug(INSERT); // fixme: hmm.. any way to see the constructed prepared statement here itself?
 		if (1 != insertCount) {
 			throw new IncorrectDataModificationSizeException(1, insertCount);
 		}

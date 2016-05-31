@@ -24,7 +24,7 @@ public class EventSetter implements PreparedStatementSetter {
 		stmt.setString(3, event.getEventType());
 		stmt.setTimestamp(4, toSqlTimestamp(event.getEstimatedTimeOfArrival()));
 		stmt.setString(5, event.getStatus().name());
-//		FIXME: why not ternaries? keeps code dry
+//		todo: why not ternaries? keeps code dry
 //		if (event.getParentId() != null) {
 //			stmt.setString(6, event.getParentId().toString());
 //		} else {
@@ -33,6 +33,7 @@ public class EventSetter implements PreparedStatementSetter {
 		stmt.setString(6, event.getParentId() != null ? event.getParentId().toString() : null);
 		stmt.setTimestamp(7, toSqlTimestamp(event.getCreatedTime()));
 		stmt.setTimestamp(8, toSqlTimestamp(event.getModifiedTime()));
+//		logger.debug(stmt); // fixme: how do i get scope here? is this not global?
 	}
 
 }
