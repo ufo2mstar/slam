@@ -3,7 +3,7 @@ package slam.dao;
 import org.springframework.dao.DataAccessException;
 
 /**
- * Created by kyubits on 05/30/2016.
+ * Created by github.com/ufo2mstar for Project:slam on 05/30/2016.
  */
 public class IncorrectDataModificationSizeException extends DataAccessException {
 

@@ -19,6 +19,11 @@ public class EventController {
 	 
 	private static final Logger log = LoggerFactory.getLogger(EventController.class);
 
+	/**
+     * Event receiver endpoint
+     * @param event
+     * @return
+     */
     @RequestMapping(path="event", method=RequestMethod.POST)
     @ResponseBody
     public UUID postEvent(@RequestBody @Valid Event event) {
@@ -27,6 +32,10 @@ public class EventController {
         return UUID.randomUUID();
     }
 
+	/**
+     * Home Page!
+     * @return
+     */
     @RequestMapping(path = "/")
     @ResponseBody
     public String home(){

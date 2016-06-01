@@ -11,6 +11,7 @@ import org.mockito.internal.matchers.apachecommons.ReflectionEquals;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.wiring.BeanConfigurerSupport;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -23,7 +24,7 @@ import slam.model.type.StatusType;
 public class EventDaoSqlTest {
 
 	private static final Logger log = LoggerFactory.getLogger(EventDaoSqlTest.class);
-	
+
 	@Autowired
 	EventDaoSql dao;
 
@@ -55,7 +56,7 @@ public class EventDaoSqlTest {
 		testInsert(event);
 
 		Event result = dao.find(event.getId());
-		log.debug("event: " + event);
+		log.debug("event : " + event);
 		log.debug("result: " + result);
 		
 		assertTrue(new ReflectionEquals(event, (String[]) null).matches(result));
