@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show delete="false" id="ps_sla_manager_domain_Event" object="${event}" path="/events" z="xJKovraFVxkjsE/urItfFDkKhME=">
+        <field:display field="id" id="s_sla_manager_domain_Event_id" object="${event}" z="qfKOs9TMpSvCqLsStIgEh3vzFFk="/>
+        <field:display field="correlationId" id="s_sla_manager_domain_Event_correlationId" object="${event}" z="ZUZ2yJ5VoRE4FLLxBuf1OIFvsmE="/>
+        <field:display field="eventType" id="s_sla_manager_domain_Event_eventType" object="${event}" z="Mw9qYXZSj5np9VwcxZ51ervPQ4I="/>
+        <field:display date="true" dateTimePattern="${event_estimatedtimeofarrival_date_format}" field="estimatedTimeOfArrival" id="s_sla_manager_domain_Event_estimatedTimeOfArrival" object="${event}" z="2zA7E2TTatYwPXQLmVLYib9S9Uc="/>
+        <field:display field="parentId" id="s_sla_manager_domain_Event_parentId" object="${event}" z="rSqr6SuFhdesG00xnzLyh2nYIH4="/>
+        <field:display date="true" dateTimePattern="${event_createdtime_date_format}" field="createdTime" id="s_sla_manager_domain_Event_createdTime" object="${event}" z="+9mDwFCZaWYQ2o+nMa49U4cLqWQ="/>
+        <field:display date="true" dateTimePattern="${event_modifiedtime_date_format}" field="modifiedTime" id="s_sla_manager_domain_Event_modifiedTime" object="${event}" z="T3AYAdsNd7NMI8F2qNofA2Ltm9o="/>
+        <field:display field="status" id="s_sla_manager_domain_Event_status" object="${event}" z="e8RAqe7ZupmvpB1nWLCO2ilTkwM="/>
+    </page:show>
+</div>
