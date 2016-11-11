@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+     xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_sla_manager_domain_Event" modelAttribute="event" path="/events" render="${empty dependencies}"
+                 z="U5pIxPH6RaCjA98zRKO5gtzJR9w=">
+        <field:input field="id" id="c_sla_manager_domain_Event_id" z="qzS8DMMPKVtLdM7AllWwxJE+xhw="/>
+        <field:input field="correlationId" id="c_sla_manager_domain_Event_correlationId"
+                     z="TGvyzlvAXa1WGlG/5kERqK8DVDs="/>
+        <field:input field="eventType" id="c_sla_manager_domain_Event_eventType" z="uld/0ysM9wZAL9oWogVJdngN72A="/>
+        <field:datetime dateTimePattern="${event_estimatedtimeofarrival_date_format}" field="estimatedTimeOfArrival"
+                        id="c_sla_manager_domain_Event_estimatedTimeOfArrival" z="NUWRQM93oymoEAPaDEA3wZGd86w="/>
+        <field:input field="parentId" id="c_sla_manager_domain_Event_parentId" z="OcBS1AFNUh52K8qGnGOjKuMR9rE="/>
+        <field:datetime dateTimePattern="${event_createdtime_date_format}" field="createdTime"
+                        id="c_sla_manager_domain_Event_createdTime" z="jKs3fntkvnHkOoutfigxWkbQF/M="/>
+        <field:datetime dateTimePattern="${event_modifiedtime_date_format}" field="modifiedTime"
+                        id="c_sla_manager_domain_Event_modifiedTime" z="Er093ipOF/mwAGNVsqSkH/NM/e4="/>
+        <field:select field="status" id="c_sla_manager_domain_Event_status" items="${statustypes}" path="statustypes"
+                      z="Bg2A29ueSVEZ9GuMuw/9s8LFSnw="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_sla_manager_domain_Event" render="${not empty dependencies}"
+                     z="FBvXPjmOd/EIxiruT+iuK4sKBTk="/>
+</div>
