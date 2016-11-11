@@ -54,3 +54,4 @@ public class Event {
     @Enumerated
     private StatusType status;
 }
+

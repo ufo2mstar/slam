@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_sla_manager_domain_Event" items="${events}" z="lBtpovIGItg2RW567Qwa0x3Wmug=">
-        <table:table data="${events}" delete="false" id="l_sla_manager_domain_Event" path="/events" typeIdFieldName="id_" z="77fYCRM+EIJ7XhWBLbO43MkPFTw=">
+        <table:table data="${events}" delete="false" id="l_sla_manager_domain_Event" path="/events"
+                     typeIdFieldName="id_" z="77fYCRM+EIJ7XhWBLbO43MkPFTw=">
             <table:column id="c_sla_manager_domain_Event_id" property="id" z="3gqT8oiiWo20xCEi23KCm36fLIs="/>
-            <table:column id="c_sla_manager_domain_Event_correlationId" property="correlationId" z="9HjegmQNs31CrA7K0L9xCURziAk="/>
-            <table:column id="c_sla_manager_domain_Event_eventType" property="eventType" z="/Spb1Wek9pB8FapPCpxYSQZ8O/w="/>
-            <table:column date="true" dateTimePattern="${event_estimatedtimeofarrival_date_format}" id="c_sla_manager_domain_Event_estimatedTimeOfArrival" property="estimatedTimeOfArrival" z="tBS398jCJzE5dcYVMMSUwQYXoTs="/>
-            <table:column id="c_sla_manager_domain_Event_parentId" property="parentId" z="2rpaOtFZ7H+S6+jCRF6pWLt9x1w="/>
-            <table:column date="true" dateTimePattern="${event_createdtime_date_format}" id="c_sla_manager_domain_Event_createdTime" property="createdTime" z="lQ4sp4vFiPVHppafRC8lOAXwyF4="/>
+            <table:column id="c_sla_manager_domain_Event_correlationId" property="correlationId"
+                          z="9HjegmQNs31CrA7K0L9xCURziAk="/>
+            <table:column id="c_sla_manager_domain_Event_eventType" property="eventType"
+                          z="/Spb1Wek9pB8FapPCpxYSQZ8O/w="/>
+            <table:column date="true" dateTimePattern="${event_estimatedtimeofarrival_date_format}"
+                          id="c_sla_manager_domain_Event_estimatedTimeOfArrival" property="estimatedTimeOfArrival"
+                          z="tBS398jCJzE5dcYVMMSUwQYXoTs="/>
+            <table:column id="c_sla_manager_domain_Event_parentId" property="parentId"
+                          z="2rpaOtFZ7H+S6+jCRF6pWLt9x1w="/>
+            <table:column date="true" dateTimePattern="${event_createdtime_date_format}"
+                          id="c_sla_manager_domain_Event_createdTime" property="createdTime"
+                          z="lQ4sp4vFiPVHppafRC8lOAXwyF4="/>
         </table:table>
     </page:list>
 </div>

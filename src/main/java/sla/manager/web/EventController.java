@@ -8,4 +8,8 @@ import sla.manager.domain.Event;
 @Controller
 @RooWebScaffold(path = "events", formBackingObject = Event.class, delete = false)
 public class EventController {
+
+//	todo: some roo magic for a REST controller
+	
 }
+
